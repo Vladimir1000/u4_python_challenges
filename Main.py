@@ -16,9 +16,29 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+def minutes_to_seconds(minutes):
+    return minutes * 60
+print(minutes_to_seconds(1)) 
+
+def hours_to_seconds(hours):
+    return hours * 3600
+print(hours_to_seconds(1))
+
+seconds_in_a_day = hours_to_seconds(24)
+print(seconds_in_a_day)  
+
+hours_in_june = 30 * 24
+print(hours_in_june)
+
+def days_to_minutes(days):
+    return days * 24 * 60
+
+minutes_in_august = days_to_minutes(31)
+print(minutes_in_august)  
+
+
 # ---------------------------------
-
-
 
 #  2) Middle letter
 
@@ -28,6 +48,21 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def mid(string):
+    length = len(string)
+    if length % 2 == 0:
+        return ""
+    else:
+        middle_letter = length // 2  # Performing integer division
+        return string[middle_letter]
+
+# Examples:
+print(mid("123"))
+print(mid("1234"))
+print(mid("Vladimir"))
+print(mid("Katerina II"))
+
+
 # ---------------------------------
 
 
@@ -37,6 +72,17 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+def hide_credit_card(credit_card):
+    credit_card = str(credit_card)
+    last_four = credit_card[-4:]
+    hide = '*' *(len(credit_card) - 4) #hidden_part = '*' * (len(credit_card_number) - 4) creates a string of asterisks of the same length as the number of characters to hide. with the help of chatgpt
+    return hide + last_four
+
+print(hide_credit_card("1111 2222 3333 4894"))
+
+
+
 # ---------------------------------
 
 
@@ -46,15 +92,12 @@
 
 # For example, consider the following dictionary:
 
-# ```
-# statuses = {
-#     "John": "online",
-#     "Paul": "offline",
-#     "George": "online",
-#     "Ringo": "offline"
-# }
-
-# ```
+statuses = {
+    "John": "online",
+    "Paul": "offline",
+    "George": "online",
+    "Ringo": "offline"
+}
 
 # In this case, the number of people online is 2.
 # Write a function named online_count that takes one parameter. The parameter is a dictionary that maps from strings of names to the string "online" or "offline", as seen above.
@@ -63,6 +106,11 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+def online_count(statuses):
+    return sum(1 for status in statuses.values() if status == "online")
+
+print(online_count(statuses))
 # ---------------------------------
 
 
@@ -73,6 +121,12 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+def discount_price(price, discount):
+    discount_amount = price * (discount / 100)
+    total = price - discount_amount
+    return total
+print(discount_price(100, 20))
 # ---------------------------------
 
 
@@ -84,6 +138,22 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+import math
+
+def calculate_hypotenuse(adjacent, opposite):
+    # Calculate the square of the hypotenuse
+    hypotenuse_squared = adjacent**2 + opposite**2
+    
+    # Calculate the hypotenuse by taking the square root of hypotenuse_squared
+    hypotenuse = math.sqrt(hypotenuse_squared)
+    
+    # Return the hypotenuse as an integer
+    return int(hypotenuse)
+
+print(calculate_hypotenuse(8, 15)) # Output: 17
+
+
 # ---------------------------------
 
 
@@ -97,4 +167,18 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+
+def fibonacci_sequence(n1, n2):
+    # Initialize the list with the first two numbers
+    sequence = [n1, n2]
+    
+    # Generate the next nine intervals in the Fibonacci sequence
+    for _ in range(9):
+        next_number = sequence[-1] + sequence[-2]
+        sequence.append(next_number)
+    
+    return sequence
+
+print(fibonacci_sequence(0, 1))   # Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+
 # ---------------------------------
